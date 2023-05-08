@@ -22,6 +22,7 @@ public class AppDbContext : IdentityDbContext
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
+        AppDbSeed appDbSeed = new(builder);
 
         // FluentAPI
         #region Personalização do Identity
