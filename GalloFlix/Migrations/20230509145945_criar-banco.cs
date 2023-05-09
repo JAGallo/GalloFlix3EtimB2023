@@ -324,6 +324,26 @@ namespace GalloFlix.Migrations
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
+            migrationBuilder.InsertData(
+                table: "Roles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "2184a8d3-d06c-4e95-b787-727c0cb79970", "81dec6aa-0ab5-49b3-81d0-8e4ca82fb173", "Usuário", "USUÁRIO" },
+                    { "42e1a6cc-5c24-450c-b1da-05cf5306238c", "5a52fcd3-c476-4d9d-982d-0485fb9f81f9", "Administrador", "ADMINISTRADOR" },
+                    { "e8f02e5a-8403-4f21-ab8d-f78ee22fc46f", "4451ca90-9c31-4b58-8668-bd756c7c0e5c", "Moderador", "MODERADOR" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "DateOfBirth", "Discriminator", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "Name", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "ProfilePicture", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "0ebcba5d-0616-463e-a987-f3354e481702", 0, "a893163b-5d1f-4cf0-a952-813c01d98e7c", new DateTime(1981, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "AppUser", "gallojunior@gmail.com", true, false, null, "José Antonio Gallo Junior", "GALLOJUNIOR@GMAIL.COM", "GALLOJUNIOR", "AQAAAAEAACcQAAAAEBhGik+SDPMpeQXx8EsZhJP72H0GxpyEf8a5BB5xtK2EvRoRouNhUf/rGbyYn90FfQ==", "14981544857", true, "/img/users/avatar.png", "6d8f2535-b238-4e82-aafa-f629830a317c", false, "GalloJunior" });
+
+            migrationBuilder.InsertData(
+                table: "UserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { "42e1a6cc-5c24-450c-b1da-05cf5306238c", "0ebcba5d-0616-463e-a987-f3354e481702" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_MovieComment_MovieId",
                 table: "MovieComment",
